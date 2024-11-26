@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMap Login</title>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap');
+
+        /* Import Custom Font */
+        @font-face {
+            font-family: "Sankofa Display";
+            src: url("./fonts/SankofaDisplay-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        color: #000;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    form {
+        width: 400px;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 20px;
+        border-radius: 12px;
+        z-index: 9999;
+        box-shadow: 0px 0px 10px #fff;
+    }
+
+    form input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid black;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    form input:focus {
+        outline: none;
+        border-color: #394867;
+        transition: .3s;
+    }
+
+    form label {
+        position: relative;
+        height: 100%;
+        display: block;
+    }
+
+    form input[type="submit"] {
+        border: none;
+        background-color: #394867;
+        color: #fff;
+    }
+
+    form label span {
+        font-size: 10px;
+        position: absolute;
+        top: -7px;
+        left: 20px;
+        transition: .3s;
+        background-color: #fff;
+        padding: 2px;
+    }
+
+    label > input:focus + span {
+        color: #394867;
+        font-size: 12px;
+        transition: .3s;
+        top: -10px;
+    }
+
+    .termofuse {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .termofuse input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+    }
+
+    .termofuse a {
+        color: #394867;
+        text-decoration: none;
+    }
+
+    .left {
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            font-family: "Sankofa Display", sans-serif;
+        }
+
+
+   
+
+    .right {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    @media (max-width: 726px) {
+        .left {
+            display: none;
+        }
+
+        .right {
+            width: 100%; /* Make the right div take full width */
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width: 90%; /* Adjust form width for smaller screens */
+        }
+    }
+</style>
+</head>
+<body>
+    
+<div style="display: flex; width: 100%; height: 100vh;">
+
+  <div class="left">
+    <h1 style="font-size:600%;">MoneyMap</h1> <!-- MoneyMap now uses the custom font -->
+
+  </div>
+
+  <div class="right">
+    <form action="/signup" method="post" onsubmit="return validateForm()">
+        <h1>SIGN-UP</h1>
+    
+        <p style="color: rgb(255, 23, 23); text-align: center;"><%= fail %></p>
+    
+        <label for="name">
+            <input type="text" name="name" id="name" minlength="3" maxlength="50">
+            <span>FULL NAME</span>
+            <span class="error-message" id="name-error" style="color: rgb(255, 23, 23); display: none;"></span>
+        </label>
+    
+        <label for="email">
+            <input type="email" name="email" id="email">
+            <span>EMAIL</span>
+            <span class="error-message" id="email-error" style="color: rgb(255, 23, 23); display: none;"></span>
+        </label>
+    
+        <label for="phone">
+            <input type="tel" name="phone" id="phone" pattern="[0-9]{10}">
+            <span>PHONE</span>
+            <span class="error-message" id="phone-error" style="color: rgb(255, 23, 23); display: none;"></span>
+        </label>
+    
+        <label for="password">
+            <input type="password" name="password" id="password" minlength="4">
+            <span>PASSWORD</span>
+            <span class="error-message" id="password-error" style="color: rgb(255, 23, 23); display: none;"></span>
+        </label>
+    
+        <p style="color: rgb(255, 23, 23); text-align: center;"><%#= fail2 %></p>
+    
+        <label for="confirmpassword">
+            <input type="password" name="confirmpassword" id="confirmpassword" minlength="4">
+            <span>CONFIRM PASSWORD</span>
+            <span class="error-message" id="confirmpassword-error" style="color: rgb(255, 23, 23); display: none;"></span>
+        </label>
+    
+        <input type="submit" value="Create Account">
+        <p>If you have an account? &nbsp;&nbsp;<a href="/login">Login</a></p>
+    
+    </form>
+    
+    
+
+      <!-- goooogle -->
+    
+  </div>
+
+</div>
+
+
+
+<script>
+function validateForm() {
+    // Clear previous error messages
+    document.querySelectorAll('.error-message').forEach(function (el) {
+        el.style.display = 'none';
+    });
+
+    let valid = true;
+
+    // Validate name
+    const name = document.getElementById('name').value.trim();
+    const namePattern = /^[a-zA-Z\s]+$/;
+    if (name.length < 3 || name.length > 50 || !namePattern.test(name)) {
+        document.getElementById('name-error').innerText = 'Name must be between 3 and 50 characters and contain only letters.';
+        document.getElementById('name-error').style.display = 'block';
+        valid = false;
+    }
+
+    // Validate email
+    const email = document.getElementById('email').value;
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById('email-error').innerText = 'Please enter a valid email address.';
+        document.getElementById('email-error').style.display = 'block';
+        valid = false;
+    }
+
+    // Validate phone
+    const phone = document.getElementById('phone').value;
+    if (!/^\d{10}$/.test(phone)) {
+        document.getElementById('phone-error').innerText = 'Phone number must be 10 digits.';
+        document.getElementById('phone-error').style.display = 'block';
+        valid = false;
+    }
+
+   
+   // Validate password
+const password = document.getElementById('password').value;
+const passwordPattern = /^[a-zA-Z0-9]+$/; // Only letters and numbers
+if (password.length < 4 || /\s/.test(password) || !passwordPattern.test(password)) {
+    document.getElementById('password-error').innerText = 'Password have atleast 4 characters, contain only letters and numbers.';
+    document.getElementById('password-error').style.display = 'block';
+    valid = false;
+}
+
+// Validate confirm password
+const confirmPassword = document.getElementById('confirmpassword').value;
+if (confirmPassword !== password) {
+    document.getElementById('confirmpassword-error').innerText = 'Both passwords do not match.';
+    document.getElementById('confirmpassword-error').style.display = 'block';
+    valid = false;
+}
+
+
+    return valid;
+}
+</script>
+</body>
+</html>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

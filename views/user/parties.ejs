@@ -1,0 +1,499 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-orders-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>MoneyMap</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <!-- Favicon -->
+    
+    <!-- Template CSS -->
+    <link href="user/assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Sankofa+Display&display=swap");
+  
+        /* Import Custom Font */
+        @font-face {
+          font-family: "Sankofa Display";
+          src: url("./fonts/SankofaDisplay-Regular.ttf") format("truetype");
+          font-weight: 400;
+          font-style: normal;
+        }
+        .sankofa-display-regular {
+          font-family: "Sankofa Display", serif;
+          font-weight: 400;
+          font-style: normal;
+        }
+        .logo {
+          display: flex;
+          width: 50%;
+          justify-content: center;
+          align-items: center;
+          font-weight: bolder;
+          font-family: "Sankofa Display", sans-serif;
+          font-size: xx-large;
+          color: black;
+        }
+     
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+       
+
+      </style>
+</head>
+
+<body>
+    <div class="screen-overlay"></div>
+    <aside class="navbar-aside" id="offcanvas_aside">
+        <div class="aside-top">
+          <a href="index.html" class="brand-wrap">
+            <p
+              style="font-weight: bolder; padding-left: 7rem; font-size: 43px"
+              class="logo"
+            >
+              MoneyMap
+            </p>
+          </a>
+          <div>
+            <button class="btn btn-icon btn-aside-minimize">
+              <i class="text-muted material-icons md-menu_open"></i>
+            </button>
+          </div>
+        </div>
+        <nav>
+          <ul class="menu-aside">
+            <li class="menu-item ">
+              <a class="menu-link" href="home">
+                <i class="icon material-icons md-home"></i>
+                <span class="text">Dashboard</span>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a class="menu-link" href="cashBook">
+                <i class="icon material-icons md-monetization_on"></i>
+                <span class="text">Cash Book</span>
+              </a>
+            </li>
+            <li class="menu-item active">
+              <a class="menu-link" href="#">
+                <i class="icon material-icons md-stars"></i>
+                <span class="text">parties</span>
+              </a>
+            </li>
+            <li class="menu-item ">
+                <a class="menu-link" href="#">
+                    <i class="icon material-icons md-pie_chart"></i>
+                  <span class="text">Expence Controll</span>
+                </a>
+              </li>
+            <li class="menu-item ">
+              <a class="menu-link" href="category">
+                <i class="icon material-icons md-add_box"></i>
+                <span class="text">Category</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    <main class="main-wrap">
+        <header class="main-header navbar">
+            <div class="col-search">
+              <form class="searchform">
+                <div class="input-group">
+                  <input
+                    list="search_terms"
+                    type="text"
+                    class="form-control"
+                    placeholder="Search term"
+                  />
+                  <button class="btn btn-light bg" type="button">
+                    <i class="material-icons md-search"></i>
+                  </button>
+                </div>
+                <datalist id="search_terms">
+                  <option value="Products"></option>
+                  <option value="New orders"></option>
+                  <option value="Apple iphone"></option>
+                  <option value="Ahmed Hassan"></option>
+                </datalist>
+              </form>
+            </div>
+            <div class="col-nav">
+              <button
+                class="btn btn-icon btn-mobile me-auto"
+                data-trigger="#offcanvas_aside"
+              >
+                <i class="material-icons md-apps"></i>
+              </button>
+              <ul class="nav">
+                <li class="dropdown nav-item">
+                  <a
+                    class="dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    id="dropdownAccount"
+                    aria-expanded="false"
+                  >
+                    <img
+                      class="img-xs rounded-circle"
+                      src="user/assets/imgs/people/nnnnnnnnn.png"
+                      alt="User"
+                  /></a>
+                  <div
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="dropdownAccount"
+                  >
+                    <a class="dropdown-item" href="#"
+                      ><i class="material-icons md-perm_identity"></i>Edit
+                      Profile</a
+                    >
+    
+                    <a class="dropdown-item" href="#"
+                      ><i class="material-icons md-help_outline"></i>Help center</a
+                    >
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="#"
+                      ><i class="material-icons md-exit_to_app"></i>Logout</a
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </header>
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">Parties </h2>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card mb-3">
+                        <header style="display: flex;" class="card-header">
+                           <h4>Lending & Buying</h4>
+                           <div  class="d-gridcol-lg-4 col-md-6 me-auto text-end">
+                            <button  class="btn btn-primary" onclick="collectUserInfo()"  ><i class="icon material-icons md-add_box" ></i>Add Customer</button>
+                        </div>
+                        </header> <!-- card-header end// -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                              <% for(i=0;i<partiesCustomer.length;i++){ %>
+                                <!-- ......partis start.... -->
+                                <a href="/person?personid=<%= partiesCustomer[i]._id %>">   <div style="background-color:#dfdfdf; display: flex; flex-direction: row;" class="card card-body mb-4">
+                                    <div>
+                                      <article class="icontext">
+                                        <span class="icon icon-sm rounded-circle bg-primary-light">
+                                          <i class="text-primary icon-mg material-icons md-person"></i>
+                                        </span>
+                                        <div class="text">
+                                          <span style="text-decoration: none;"><%= partiesCustomer[i].name %></span>
+                                          <span class="text-sm"> <%= partiesCustomer[i].description %> </span>
+                                        </div>
+                                      </article>
+                                    </div> </a>
+                                    <div style="display: flex; flex-direction: column; justify-content:center; align-items: flex-end; flex-grow: 1;">
+                                        <div style="display: flex;gap: 20px">
+                                            <div><a href="/sendMessage?userid=<%= partiesCustomer[i]._id %>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-fill" viewBox="0 0 16 16">
+                                              <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                            </svg></a></div>
+                                        <div ><a href="/deleteParties?partiesid=<%= partiesCustomer[i]._id %>"><i class="material-icons md-delete_forever"></i></a></div>
+                                        </div>
+                                    
+                                    </div>
+                                  </div>
+                               
+                                  
+                                  <!-- ......partis end.... -->
+                                  <% } %>
+
+                            </div> <!-- table-responsive //end -->
+                        </div> <!-- card-body end// -->
+                    </div> <!-- card end// -->
+                </div>
+                <div class="col-md-3">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <h4 class="mb-4">Total</h4>
+                            <hr>
+                            <div style="background-color:#dfdfdf;" class="card card-body mb-4">
+                                <article class="icontext">
+                                  
+                                  <div class="text">
+                                    <h6 class="mb-1 card-title">Total you Gave</h6>
+                                    <span style="color: red;"> <%= totlToGave %>
+                                      </span>
+                                    <!-- <span class="text-sm"> Shipping fees are not included </span> -->
+                                  </div>
+                                </article>
+                              </div>
+                              <div style="background-color:#dfdfdf;" class="card card-body mb-4">
+                                <article class="icontext">
+                                  
+                                  <div class="text">
+                                    <h6 class="mb-1 card-title">Total you Get</h6>
+                                    <span style="color: green;"><%= totlToGet %></span>
+                                    <!-- <span class="text-sm"> Shipping fees are not included </span> -->
+                                  </div>
+                                </article>
+                              </div>
+                              <div style="background-color:#dfdfdf;" class="card card-body mb-4">
+                                <article class="icontext">
+                                  
+                                  <div class="text">
+                                    <h6 class="mb-1 card-title">Sub Total</h6>
+                                    <% if(subTotal <0 ){ %>
+                                        <span style="color: red;"><%=   subTotal %></span>
+                                    <span class="text-sm"> Remaining money to  Give Rs&nbsp;<%= Math.abs(subTotal)  %> </span>
+                                        <% }else{ %>
+                                    <span style="color: green;"><%=   subTotal %></span>
+                                    <span class="text-sm"> Remaining money to get Rs &nbsp;<%= subTotal %>  </span>
+                                    <% } %>
+                                  </div>
+                                </article>
+                              </div>
+                        </div>
+                    </div> <!-- card end// -->
+                </div>
+            </div>
+            <div class="pagination-area mt-15 mb-50">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-start">
+                        <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                        <li class="page-item"><a class="page-link" href="#">02</a></li>
+                        <li class="page-item"><a class="page-link" href="#">03</a></li>
+                        <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section> <!-- content-main end// -->
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+                <div class="col-sm-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> ©, Evara - HTML Ecommerce Template .
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end">
+                        All rights reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+       
+        </main>
+ 
+    <script>
+        
+        const Message = "<%= message %>";
+        console.log(Message);
+       
+         if (Message == 'success') {
+    Swal.fire({
+        title: 'Success!',
+        text: "Added successfully",
+        icon: 'success',
+        showConfirmButton: false,
+        showCancelButton: false,
+        timer: 2000               
+    });
+      } 
+       if(Message == 'existPartis') {
+            Swal.fire({
+                title: 'Error!',
+                text: " Already Exist",
+                icon: 'error',
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer:2000
+            });
+        }
+        
+        if (Message == 'DeletedSuccess') {
+    Swal.fire({
+        title: 'Success!',
+        text: "Deleteted successfully",
+        icon: 'success',
+        showConfirmButton: false,
+        showCancelButton: false,
+        timer: 2000               
+    });
+      } 
+
+      if(Message == 'DeletedFail') {
+            Swal.fire({
+                title: 'Error!',
+                text: " Some Error..",
+                icon: 'error',
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer:2000
+            });
+        }
+    </script>
+    <style>
+        .let{
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
+<script>
+    function collectUserInfo() {
+        Swal.fire({
+            title: '<span style="font-family: "Spartan", sans-serif; font-size: 26px; color: black; font-weight: bold; text-align: center;">Add New Customer</span>',
+            html: `
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px;">
+                    <!-- Name Field -->
+                    <div style="display: flex; align-items: center;">
+                        <label for="swal-input-name" style="font-weight: 600; font-size: 1rem; color: #555; min-width: 100px;">Name</label>
+                        <input type="text" id="swal-input-name" placeholder="Enter Customer Name" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+                    </div>
+                    <!-- Description Field -->
+                    <div style="display: flex; align-items: center;">
+                        <label for="swal-input-description" style="font-weight: 600; font-size: 1rem; color: #555; min-width: 100px;">Description</label>
+                        <input type="text" id="swal-input-description" placeholder="Enter Description" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+                    </div>
+                    <!-- Phone Field -->
+                    <div style="display: flex; align-items: center;">
+                        <label for="swal-input-phone" style="font-weight: 600; font-size: 1rem; color: #555; min-width: 100px;">Phone</label>
+                        <input type="text" id="swal-input-phone" placeholder="Enter Phone Number" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+                    </div>
+                </div>
+            `,
+            focusConfirm: false,
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            cancelButtonText: 'Cancel',
+            customClass: {
+                confirmButton: 'btn btn-primary my-custom-class',
+                cancelButton: 'btn btn-secondary'
+            },
+            preConfirm: () => {
+                const name = document.getElementById('swal-input-name').value.trim();
+                const description = document.getElementById('swal-input-description').value.trim();
+                const phone = document.getElementById('swal-input-phone').value.trim();
+
+                // Validation
+                if (!name || !description || !phone) {
+                    Swal.showValidationMessage(`Please enter all fields correctly!`);
+                    return false;
+                }
+
+                // Validate phone (Only numbers allowed)
+                const phoneRegex = /^[0-9]{10}$/;
+                if (!phoneRegex.test(phone)) {
+                    Swal.showValidationMessage(`Phone number must be exactly 10 digits!`);
+                    return false;
+                }
+
+
+                // Return valid data
+                return { name, description, phone };
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const { name, description, phone } = result.value;
+              
+                fetch('/addCustomer', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, description, phone })
+                }).then(response => response.json())
+                  .then(data => {
+                      console.log('Data received:', data);
+                      if (data.success) { 
+                         
+                            location.reload();
+                      } else {
+                       
+                            location.reload();
+                      }
+                  })
+                  .catch(error => {
+                      console.error('Error sending data:', error);
+                  });
+            }
+        });
+    }
+</script>
+
+
+
+
+
+    <script src="user/assets/js/vendors/jquery-3.6.0.min.js"></script>
+    <script src="user/assets/js/vendors/bootstrap.bundle.min.js"></script>
+    <script src="user/assets/js/vendors/select2.min.js"></script>
+    <script src="user/assets/js/vendors/perfect-scrollbar.js"></script>
+    <script src="user/assets/js/vendors/jquery.fullscreen.min.js"></script>
+    <!-- Main Script -->
+    <script src="user/assets/js/main.js" type="text/javascript"></script>
+    <script>
+        const form = document.getElementById('categoryForm');
+        const category = document.getElementById('category');
+        const description = document.getElementById('description');
+        const setLimit = document.getElementById('setlimit');
+    
+        const categoryError = document.getElementById('categoryError');
+        const descriptionError = document.getElementById('descriptionError');
+        const limitError = document.getElementById('limitError');
+    
+        // Helper function to check if a field has only spaces or special characters
+        function isValidText(value) {
+            return value.trim() !== '' && /^[A-Za-z0-9\s]+$/.test(value);
+        }
+    
+        // Form submit event listener
+        form.addEventListener('submit', function(event) {
+            let isValid = true;
+    
+            // Reset error messages
+            categoryError.textContent = '';
+            descriptionError.textContent = '';
+            limitError.textContent = '';
+    
+            // Validate Category Name
+            if (!isValidText(category.value)) {
+                categoryError.textContent = 'Please enter a valid category name .';
+                isValid = false;
+            }
+    
+            // Validate Description
+            if (!isValidText(description.value)) {
+                descriptionError.textContent = 'Please enter a valid description .';
+                isValid = false;
+            }
+    
+            // Validate Set Limit (only numeric values allowed)
+            if (!/^\d+$/.test(setLimit.value.trim())) {
+                limitError.textContent = 'Please enter a limit (numeric values only).';
+                isValid = false;
+            }
+    
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+    
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-orders-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:22 GMT -->
+</html>
